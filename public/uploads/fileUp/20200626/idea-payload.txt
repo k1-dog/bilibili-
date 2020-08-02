@@ -1,0 +1,4 @@
+1.phar 反序列化漏洞
+2.python反序列化伪造cookie
+3.zip伪协议读取+文件上传
+4.sql报错注入（updatexml，extractvalue，floor）

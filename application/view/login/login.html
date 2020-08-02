@@ -1,0 +1,12 @@
+<!--{eq name='userLogin' value=0}
+    <script>alert('error!');</script>
+{else/}
+    设置cookie或者是session身份令牌变量
+{/eq}-->
+{extend name='public/primary'}
+
+{block name='uLevel'}{__block__}{$userLevel.userLevel}{/block}
+{block name='levelNum'}<!--{__block__}-->{$userLevel.userExpBar}/{$userLevel.userLevel * 100}{/block}
+{block name='money'}<!--{__block__}-->{$userLevel.userBhard}{/block}
+{block name='valid'}{$userValid}{/block}
+<!-- -->

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fileCheck</title>
+    <style>
+        html{
+            background: aquamarine;
+            display: flex;
+            justify-content: center;
+            width: 90%;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        .head-logo{
+            height: 200px;
+            background: url("__IMG__/pic_cute/date1.jpg") no-repeat dodgerblue;
+            background-size:cover;
+        }
+        .cute-control{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background: #C2E5FF;
+            border-radius: 4px;
+        }
+        .cute-img{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 5px;
+        }
+        .first-div-bar{
+            border: solid 6px #5f5c5c99;
+        }
+        .preview{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cute-label{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        label[csrf-v-demo1]{
+            width:25%;
+            background: #c5cbd5;
+            font-size: 18px;
+            border-radius: 3px;
+            border: solid black 2px;
+            cursor: pointer;
+        }
+        .operate-btn{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            margin: 0 10px 0 0;
+        }
+        label[csrf-v-opera1]{
+            width:100%;
+            background: #bdd500;
+            font-size: 18px;
+            border-radius: 3px;
+            border: solid black 2px;
+            cursor: pointer;
+        }
+        .cute-contain{
+            width: 310px;
+            height: 310px;
+            margin: 0 5px;
+            border-radius: 2px;
+            border: solid black 2px;
+        }
+        .cute{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .cute-info{
+            margin: 0 5px;
+            border: 8px double black;
+            background: aliceblue;
+        }
+        .file-list,.user-list{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            border: solid black 2px;
+            justify-content: space-around;
+        }
+        .file-list .operation span{
+            cursor: pointer;
+        }
+        .divide-bar{
+            border: dashed 2px #6e6eef;
+        }
+        .pagination{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            font-size: 25px;
+            color: #b3a56e;
+        }
+        .pagination li{
+            display: inline-block;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="head-logo"></div>
+    <div class="cute-control">
+        <div class="cute-img">
+            <div class="operate-btn">
+                <label  class="opera1" csrf-v-opera1="">用户管理</label>
+                <label  class="opera2" csrf-v-opera1="">文件管理</label>
+                <label  class="opera3" csrf-v-opera1="">小兰绿柯南</label>
+                <label  class="opera4" csrf-v-opera1="">柯南绿小兰</label>
+            </div>
+            <div class="first-div-bar"></div>
+            <div class="preview">
+                <div class="cute-label">
+                    <label  class="cute1" csrf-v-demo1="">cute1</label>
+                    <label  class="cute2" csrf-v-demo1="">cute2</label>
+                    <label  class="cute3" csrf-v-demo1="">cute3</label>
+                    <label  class="cute4" csrf-v-demo1="">cute4</label>
+                </div>
+                <div class="cute-contain">
+                    <img class="cute" src="__IMG__/pic_cute/miku1.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="cute-info">
+            {block name='index'}{/block}
+            {block name='userList'}{/block}
+            {block name='fileList'}{/block}
+        </div>
+    </div>
+</div>
+{load href='__JS__/jquery-3.2.1.min.js,__JS__/fileCtr/alterImg.js,__JS__/fileCtr/jquery.form.js'}
+{load href='__JS__/fileCtr/download.js,__JS__/fileCtr/operaRequest.js'}
+{load href='__JS__/fileCtr/paginate.js'}
+</body>
+</html>

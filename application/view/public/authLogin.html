@@ -1,0 +1,22 @@
+{include file='public/header'}
+{load href='__CSS__/authLogin.css,__JS__/specialDemo/snowBack.js,__JS__/login/authLog.js'}
+<div id="snowCanvas" class="snowCanvas"></div>
+<div class="vp-container">
+    <div class="btn-box">
+        <form class="auth-login" action="{:url('authenticate/checkLogin')}" method="post">
+            <div class="login-name">
+                <label for="name">用户名</label>
+                <input type="text" name="name" id="name" placeholder="请输入用户名">
+            </div>
+            <div class="login-password">
+                <label for="password">密码</label>
+                <input type="password" name="pwd" id="password" placeholder="请输入密码">
+            </div>
+            <div class="submit">
+                <input type="submit" id="reg" value="注册"> ||
+                <input type="submit" id="log" value="登陆">
+            </div>
+        </form>
+    </div>
+</div>
+{include file='public/footer'}

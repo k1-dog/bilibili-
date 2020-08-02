@@ -1,0 +1,21 @@
+{extend name='public/fileControl/fileIndex'}
+{block name="userList"}
+<div class="user-list">
+    <div class="upz"><span>用户名</span></div>
+    <div class="divide-bar"></div>
+    <div class="userID"><span>身份</span></div>
+</div>
+{volist name="$userList" id="user"}
+<div class="user-list">
+    <div class="upz"><span>{$user.username}</span></div>
+    <div class="divide-bar"></div>
+    {if $user.username == "kulumi"}
+        <div class="userID"><span>尊贵的-狂三-超管</span></div>
+    {else/}
+        <div class="userID"><span>B侠</span></div>
+    {/if}
+</div>
+{/volist}
+{$userList|raw}
+<div class="html-info" style="display: none">{$htmlInfo}</div>
+{/block}

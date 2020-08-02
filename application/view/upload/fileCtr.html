@@ -1,0 +1,25 @@
+{extend name='public/fileControl/fileIndex'}
+{block name="fileList"}
+<div class="file-list">
+    <div class="upz"><span>所有者</span></div>
+    <div class="divide-bar"></div>
+    <div class="filename"><span>文件名</span></div>
+    <div class="divide-bar"></div>
+    <div class="operation">
+        | <label><span>操作</span></label> |
+    </div>
+</div>
+{volist name="$fileData" id="file"}
+<div class="file-list">
+    <div class="upz"><span>{$file.username}</span></div>
+    <div class="divide-bar"></div>
+    <div class="filename"><span>{$file.userfile}</span></div>
+    <div class="divide-bar"></div>
+    <div class="operation">
+        | <label id="down-lab"><span  onclick="_download(this)">download</span></label> |
+    </div>
+</div>
+{/volist}
+{$fileData|raw}
+<div class="html-info" style="display: none">{$htmlInfo}</div>
+{/block}

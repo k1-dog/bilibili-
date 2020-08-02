@@ -1,0 +1,50 @@
+<div class="user-container">
+    <div class="user-face">
+        <div id="uface-cons"></div>
+    </div>
+    <div class="ucon-title">
+        <p>bili_62148453488</p>
+    </div>
+    <div class="level-content">
+        <div class="level-info">
+            <span id="label-level">{block name='uLevel'}等级 {/block}</span>
+            <span id="level-num">{block name='levelNum'}0/0{/block}</span>
+            <div id="level-bar">
+                <div class="level-progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="coins">
+        <div class="coins-container">
+            <a href="">
+                <ul>
+                    <li><div id="hardbi-icon"></div></li>
+                    <li><span id="money">{block name='money'}10.0{/block}</span></li>
+                </ul>
+            </a>
+            <a href="">
+                <ul>
+                    <li><div id="Bbi-icon"></div></li>
+                    <li><span id="money">10.0</span></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="user-ctr">
+        <a href="./upload/disfile">
+            <span>o文件管理o</span>
+        </a>
+        {load href='__JS__/jquery-3.2.1.min.js'}
+        <div class="upload-op">
+            <label class="text-up" for="text-up-input"><span>o投稿管理o</span></label>
+            <form method="post" style="display: none;" enctype="multipart/form-data">
+                <input id="text-up-input" type="file" name="bili_file"/>
+            </form>
+            <input class="opera-up" type="button" value="o投稿上传o"/>
+        </div>
+    </div>
+</div>
+{include file='public/header'}
+{include file='public/nav' /}
+{include file='public/footer'}
+<h id="valid">{block name='valid'}{/block}</h>

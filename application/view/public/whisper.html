@@ -1,0 +1,71 @@
+{include file='public/header'}
+{load href='__CSS__/message.css'}
+{load href='__JS__/closeIcon.js,__JS__/btnSendMsg.js,__JS__/ajaxChatRqt.js,__JS__/bdyListControl.js'}
+<div class="container">
+    <div id="link-message-container" class="">
+    <div class="sub-container">
+{include file='public/common/space-left'}
+        <div class="space-right">
+{include file='public/common/space-right_top'}
+            <div class="space-right-bottom ps" data-v-K02="" data-no-clip="">
+                <div class="router-view" data-v-K02="" style="">
+                    <div class="card whisper" data-v-K02="" data-v-KLOVE03="">
+                        <div class="list" data-v-list02="">
+                            <div class="list-title" data-v-K02="" data-v-KLOVE03="">近期消息</div>
+                            <div class="list-content ps" data-v-K02="" data-v-KLOVE03="">
+                                <div data-v-K02="" data-v-KLOVE03="">
+                                    {block name='bdyList'}miku{/block}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog" data-v-dialog01="" data-v-KEdia01="">
+                            <div class="title" data-v-dialog01="">
+                                <span data-v-dialog01="">{block name="bdyName"}{/block}</span>
+                            </div>
+                            <div class="message-list" data-v-dialog01="" data-v-ML01="">
+                                <div class="message-list-content" data-v-ML01="">
+                                    <div class="msg-time" data-v-MT01="" data-v-ML01="">
+                                        <span class="time" data-v-time01="" data-v-MT01="">2020年3月24日 9:05</span>
+                                    </div>
+                                    {block name="msgList"}display MSG{/block}
+                                </div>
+                            </div>
+                            <div class="send-box" data-v-SB01="" data-v-dialog01="">
+                                <div class="row" data-v-SB01="">
+                                    <div class="space-margin" data-v-SB01="">
+                                        <label class="image-upload-btn" data-v-SB01=""></label>
+                                    </div>
+                                    <div class="emotion-btn space-margin"  data-v-emotionBtn="" data-v-SB01="">
+                                        <a class="emotion-btn-box" data-v-emotionBtn="" title="表情"></a>
+                                        <div class="emotion-box" data-v-emotionBtn=""></div>
+                                    </div>
+                                    <div class="emoji-btn" data-v-emojiBtn="" data-v-SB01=""></div>
+                                </div>
+                                <div class="input-box" data-v-IB01="" data-v-SB01="">
+                                    <textarea class="textarea" data-v-IB01="" placeholder="回复一下吧~" maxlength="500" autofocus="autofocus" style="height: 60px;"></textarea>
+                                </div>
+                                <div class="row right" data-v-SB01="">
+                                    <button class="btn-box send-btn" data-v-sendBtn="" data-v-SB01="" title="enter 发送">发送</button>
+                                </div>
+                            </div>
+                        </div>
+                        {block name="faceBlock"}{/block}
+                        <!--数据查询为空时显示一下空提示
+                        <div data-v-KLOVE03="">
+                            <div>
+                                <div class="card" data-v-KLOVE03="" data-v-Kcard04="">
+                                    <div class="nothing" data-v-Kcard04="">
+                                        <img class="nothing-img" data-v-Kcard04="" src="../../pictures/Nodata.png"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+{include file='public/footer'}

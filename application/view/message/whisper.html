@@ -1,0 +1,44 @@
+{extend name='public/whisper'}
+
+{block name="bdyName"}{$buddyName}{/block}
+{block name='bdyList'}
+    {__block__}
+    {volist name="$buddyList" id="bdyData"}
+    <a class="list-item router-link-active"  data-v-KEa01="" data-v-KLOVE03="" href="" data-v-K02="">
+        <div class="avatar" data-v-KEa01="" title="{$bdyData.buddy}" style="background-image: url('__IMG__/{$bdyData.face}');"></div>
+        <div class="name-box" data-v-KEa01="">
+            <div class="name" data-v-KEa01="" title="{$bdyData.buddy}">{$bdyData.buddy}</div>
+            <div class="last-word" data-v-KEa01="">ni hao a!</div>
+        </div>
+        <div class="close" data-v-KEa01="">
+            <svg class="close-icon" data-v-KEa01="" viewBox="0 0 40 40"><path d="M22.83,20,38.42,4.41a2,2,0,1,0-2.83-2.83h0L20,17.17,4.41,1.58A2,2,0,0,0,1.58,4.41L17.17,20,1.58,35.59a2,2,0,0,0,2.83,2.83L20,22.83,35.59,38.42a2,2,0,1,0,2.83-2.83Z"></path></svg>
+        </div>
+    </a>
+    {/volist}
+{/block}
+{block name="msgList"}
+    {__block__}
+    {volist name="$buddyInfo" id="bdyInfoCollection"}
+        {if $bdyInfoCollection.from == 0}
+            <div class="msg-item is-me" data-v-mItem01="" data-v-ML01="">
+                <a class="avatar" data-v-mItem01="" href="" title="{$bdyInfoCollection.avatar}" target="_blank" style="background-image: url('__IMG__/{$bdyInfoCollection.face}');"></a>
+                <div class="message" data-v-mItem01="">
+                    <div class="message-content is-me not-img" data-v-mItem01="" data-key="000001">{$bdyInfoCollection.message}</div>
+                </div>
+            </div>
+        {else/}
+            <div class="msg-item not-me" data-v-mItem01="" data-v-ML01="">
+                <a class="avatar" data-v-mItem01="" href="" title="{$bdyInfoCollection.avatar}" target="_blank" style="background-image: url('__IMG__/{$bdyInfoCollection.face}');"></a>
+                <div class="message" data-v-mItem01="">
+                    <div class="message-content not-img" data-v-mItem01="" data-key="000001">{$bdyInfoCollection.message}</div>
+                </div>
+            </div>
+        {/if}
+    {/volist}
+{/block}
+{block name="faceBlock"}
+    <div hidden="hidden">
+        <p class="isMeFace">__IMG__/{$faceData.isMe}</p>
+        <p class="notMeFace">__IMG__/{$faceData.notMe}</p>
+    </div>
+{/block}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			height:600px;
+		}
+	</style>
+</head>
+<body>
+</body>
+<script src="./jquery-3.2.1.min.js"></script>
+<script>
+	var span_id=0;
+	function span_with_canvas()
+	{
+		var spid="sp"+span_id%24;
+		
+		if(!document.getElementById(spid))
+		{
+			var span=document.createElement("span");
+			span.setAttribute('id',spid);
+			span_id++;
+			spid=spid.toString();
+			$("body").append(span);
+			setSpan_css(spid);
+			var sp_left=$("#"+spid).css("left");
+			console.log(sp_left);
+			//var sp_left=parseInt(window.getComputedStyle(span).left);
+			var canvas1=execute_Line(sp_left);
+			var $i=$("#"+spid).append(canvas1);
+			span_animate($i,spid,canvas1);
+		}
+	}
+	function span_animate($span,$spid,canvas1)
+	{
+		//var sp_top=window.getComputedStyle($span).top;//只读型获取css
+		//sp_top=parseInt(sp_top.replace(/px/,""));
+		var $span1=document.getElementById($spid);
+		console.log(typeof $span);
+		var sp_height=parseInt(window.getComputedStyle($span1).height);//只读型获取css
+		$span.animate({
+			"top":500+sp_height,
+			"opacity":0,
+			},
+			2500,
+			function(){
+				$span1.removeChild(canvas1);
+				var canvas2=execute_ellipse();
+				$(this).append(canvas2);
+				$(this).animate({
+					"opacity":1,
+				},
+				1500,
+				"swing",
+				function(){
+					$(this).remove();
+					}
+				);
+			}
+		);
+	}
+	function execute_ellipse()
+	{
+		var canvas2=document.createElement('canvas');
+		canvas2.style.cssText='width:40px;height:100px;';
+		$("body").append(canvas2);
+		var ctx=canvas2.getContext('2d');
+		ctx.strokeStyle="black";
+		ctx.lineWidth=2;
+		ctx.beginPath();
+		ctx.arc(20,50,20,Math.PI*2,0,true);
+		ctx.stroke();
+		return canvas2;
+	}
+	function execute_Line(sp_left){
+		var canvas1=document.createElement('canvas');
+		canvas1.style.cssText='width:40px;height:100px;';
+		document.body.appendChild(canvas1);
+		var context=canvas1.getContext('2d');
+		context.strokeStyle="black";
+		var x_Lwth=randX_Lwidth(sp_left);
+		context.lineWidth=x_Lwth[0];
+		context.beginPath();
+		//起点坐标
+		context.moveTo(x_Lwth[1],0);
+		//结束点坐标
+		context.lineTo(x_Lwth[1],100);
+		context.closePath();
+		context.stroke();
+		return canvas1;
+	}
+	function setSpan_css(spid)
+	{
+		//var $i=$("#"+$spid).append("<p>You HoO!</p>");
+		/*var $i=document.getElementById(spid);
+		var stop=40*Math.random()+"px";
+		var sleft=1540*Math.random()+"px";
+		$i.style.cssText="width:80px;height:100px;position:absolute;display:block;top:"+stop+";"+"left:"+sleft+";";*/
+		var span_css={
+			width:"80px",
+			height:"100px",
+			position:"absolute",
+			display:"block",
+			top:function(){return 40*Math.random()+"px";},
+			left:function(){return 1540*Math.random()+"px";},
+		};
+		$("#"+spid).css(span_css);
+		console.log('css completed');
+	}
+	
+	function randX_Lwidth(sp_left)
+	{
+		//var randx=Math.random()*document.body.clientWidth;有大问题！！！！
+		//var Lwidth=Math.random()*4;
+		var randx=Math.random()*40;
+		var Lwidth=2+Math.random()*4;
+		var array=[Lwidth,randx];
+		console.log(document.body.clientWidth);
+		return array;
+	}
+	setInterval("span_with_canvas()",1000);
+</script>
+</html>
